@@ -1,4 +1,4 @@
-class Asteroid extends GameObject() { 
+class Asteroid extends GameObject { 
   Asteroid() { 
     location = new PVector (random(0, width), random(0, height)); 
     velocity = new PVector (0, 1); 
@@ -14,5 +14,10 @@ class Asteroid extends GameObject() {
   }
   void act() {
     super.act(); 
+    
+    int i = 0; //(5:33) 
+    while (i < myObjects.size()) { 
+      i++; 
+    }
   }
 }

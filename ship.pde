@@ -1,4 +1,4 @@
-class Ship extends GameObject{
+class Ship extends GameObject {
   
   //1. Instance variables 
   PVector direction; 
@@ -31,7 +31,7 @@ class Ship extends GameObject{
     if (downkey) velocity.sub(direction); 
     if (leftkey) direction.rotate( - radians(5));
     if (rightkey) direction.rotate(radians(5)); 
-    if (spacekey) myBullets.add(new Bullet()); 
+    if (spacekey) myObjects.add(new Bullet()); 
    
   } 
   

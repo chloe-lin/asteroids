@@ -1,13 +1,17 @@
 boolean upkey, downkey, leftkey, rightkey, spacekey; 
 Ship myShip; 
 ArrayList<Bullet> myBullets; 
-ArrayList<GameObjects> myObjects; 
+ArrayList<GameObject> myObjects; 
 
 void setup() { 
   size(800, 600); 
   imageMode(CENTER); 
   myShip = new Ship(); 
   myObjects = new ArrayList<GameObject>(); 
+  myObjects.add(myShip); 
+  myObjects.add(new Asteroid()); 
+  myObjects.add(new Asteroid()); 
+  myObjects.add(new Asteroid()); 
 }
 
 void draw() {
@@ -17,10 +21,15 @@ void draw() {
   
   int i = 0; 
   while (i < myObjects.size()) { 
-    GameObject b = myObjects.get(i); 
-    b.show(); 
-    b.act(); 
-    i++; 
+    GameObject myObj = myObjects.get(i); 
+    myObj.show(); 
+    myObj.act(); 
+    
+    if (myObj.lives == 0) { 
+      myObjects.remove(i); 
+    } else { 
+     i++;  
+    }
   }
 }
 
