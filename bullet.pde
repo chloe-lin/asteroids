@@ -8,12 +8,13 @@ class Bullet extends GameObject {
     location = new PVector(myShip.location.x, myShip.location.y); 
     velocity = new PVector(myShip.direction.x, myShip.direction.y); 
     velocity.setMag(10); 
+    size = 10; 
   }
   
   void show() { 
     stroke(255); 
     noFill(); 
-    ellipse(location.x, location.y, 10, 10); 
+    ellipse(location.x, location.y, size, size); 
     
   } 
   
