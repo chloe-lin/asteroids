@@ -5,7 +5,10 @@ ArrayList<GameObject> myObjects;
 
 void setup() { 
   size(800, 600); 
+  
   imageMode(CENTER); 
+  rectMode(CENTER); 
+  
   myShip = new Ship(); 
   myObjects = new ArrayList<GameObject>(); 
   myObjects.add(myShip); 

@@ -32,7 +32,13 @@ class Ship extends GameObject {
     
     shotTimer++; 
     
-    if (upkey) velocity.add(direction);
+    //movement keyboard interactopms 
+    if (upkey) { 
+      velocity.add(direction);
+      myObjects.add(new fire()); 
+      myObjects.add(new fire()); 
+      myObjects.add(new fire()); 
+    }
     if (downkey) velocity.sub(direction); 
     if (leftkey) direction.rotate( - radians(5));
     if (rightkey) direction.rotate(radians(5)); 
@@ -40,6 +46,9 @@ class Ship extends GameObject {
       myObjects.add(new Bullet()); 
       shotTimer = 0; 
     }
+    if (velocity.mag() > 15) velocity.setMag(15); 
+    
+    if (!upkey && !downkey) velocity.setMag(velocity.mag()*1); 
        
   } 
   
