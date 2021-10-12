@@ -1,3 +1,9 @@
+int mode; 
+final int INTRO = 0; 
+final int GAME = 1; 
+final int PAUSE = 2; 
+final int GAMEOVER = 3; 
+
 boolean upkey, downkey, leftkey, rightkey, spacekey; 
 Ship myShip; 
 ArrayList<Bullet> myBullets; 
@@ -5,6 +11,8 @@ ArrayList<GameObject> myObjects;
 
 void setup() { 
   size(800, 600); 
+  
+  mode = INTRO; 
   
   imageMode(CENTER); 
   rectMode(CENTER); 
