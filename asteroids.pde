@@ -9,12 +9,19 @@ Ship myShip;
 ArrayList<Bullet> myBullets; 
 ArrayList<GameObject> myObjects; 
 
+PImage nightsky;
+PFont badsignal;
+
 void setup() { 
   size(800, 600); 
   
   mode = INTRO; 
   
-  imageMode(CENTER); 
+  nightsky = loadImage("nightsky.png"); 
+  image(nightsky, width, height);
+  
+  badsignal = createFont("badsignal.otf", 200);
+ 
   rectMode(CENTER); 
   
   myShip = new Ship(); 
@@ -26,22 +33,19 @@ void setup() {
 }
 
 void draw() {
-  background(0); 
-  myShip.show(); 
-  myShip.act(); 
   
-  int i = 0; 
-  while (i < myObjects.size()) { 
-    GameObject myObj = myObjects.get(i); 
-    myObj.show(); 
-    myObj.act(); 
-    
-    if (myObj.lives == 0) { 
-      myObjects.remove(i); 
-    } else { 
-     i++;  
-    }
-  }
+   if (mode == INTRO) {
+    intro();
+  } else if (mode == GAME) {
+    game();
+  } else if (mode == PAUSE) { 
+    pause(); 
+  } else if (mode == GAMEOVER) {
+    gameover(); 
+  } else { 
+    println("Error: Mode = " + mode); 
+  } 
+
 }
 
 void keyPressed() {
