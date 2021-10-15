@@ -19,6 +19,7 @@ class Ship extends GameObject {
     pushMatrix(); 
     translate(location.x, location.y); 
     rotate(direction.heading()); 
+    strokeWeight(1); 
     noFill(); 
     stroke(255); 
     triangle(-25, -12.5, -25, 12.5, 25, 0); 
@@ -29,6 +30,8 @@ class Ship extends GameObject {
   
   void act() { 
     super.act(); 
+    
+    if (lives <= 0) mode = GAMEOVER;
     
     shotTimer++; 
     
@@ -48,7 +51,7 @@ class Ship extends GameObject {
     }
     if (velocity.mag() > 15) velocity.setMag(15); 
     
-    if (!upkey && !downkey) velocity.setMag(velocity.mag()*1); 
+    if (!upkey && !downkey) velocity.setMag(velocity.mag()*0.995); 
        
   } 
   

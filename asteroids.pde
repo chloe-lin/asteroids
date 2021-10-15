@@ -31,37 +31,37 @@ color lavender = #CCB4C4;
 
 void setup() { 
   size(800, 600); 
-  
-  mode = INTRO; 
-  
+
+  mode = GAME; 
+
   nightsky = loadImage("nightsky.png"); 
   image(nightsky, 0, 0, width, height);
-  
+
   badsignal = createFont("badsignal.otf", 200);
-  
+
   myShip = new Ship(); 
   myObjects = new ArrayList<GameObject>(); 
   myObjects.add(myShip); 
   myObjects.add(new Asteroid()); 
   myObjects.add(new Asteroid()); 
   myObjects.add(new Asteroid()); 
+  myUfo = new Ufo(); 
   myObjects.add(myUfo);
 }
 
 void draw() {
-  
-   if (mode == INTRO) {
+
+  if (mode == INTRO) {
     intro();
   } else if (mode == GAME) {
     game();
   } else if (mode == PAUSE) { 
-    pause(); 
+    pause();
   } else if (mode == GAMEOVER) {
-    gameover(); 
+    gameover();
   } else { 
-    println("Error: Mode = " + mode); 
-  } 
-
+    println("Error: Mode = " + mode);
+  }
 }
 
 void keyPressed() {
@@ -69,7 +69,7 @@ void keyPressed() {
   if (keyCode == DOWN)   downkey = true; 
   if (keyCode == LEFT)   leftkey = true; 
   if (keyCode == RIGHT)  rightkey = true; 
-  if (keyCode == ' ')    spacekey = true; 
+  if (keyCode == ' ')    spacekey = true;
 }
 
 void keyReleased() { 

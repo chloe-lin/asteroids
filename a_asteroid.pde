@@ -30,9 +30,11 @@ class Asteroid extends GameObject {
       if (myObj instanceof Bullet) { 
         if (dist(location.x, location.y, myObj.location.x, myObj.location.y) <= size/2 + myObj.size) { 
           myObj.lives = 0; 
-          lives = 21; 
-          myObjects.add(new Asteroid(size/2, location.x, location.y)); 
-          myObjects.add(new Asteroid(size/2, location.x, location.y)); 
+          lives = 0;
+          if (size > 25) {
+            myObjects.add(new Asteroid(size/2, location.x, location.y)); 
+            myObjects.add(new Asteroid(size/2, location.x, location.y));
+          }
           myObjects.add(new particle(location.x, location.y));
           myObjects.add(new particle(location.x, location.y));
           myObjects.add(new particle(location.x, location.y));
@@ -42,8 +44,7 @@ class Asteroid extends GameObject {
           myObjects.add(new particle(location.x, location.y));
         }
       }
-      i++; 
-      if (size <= 6.25) lives--;
+      i++;
     }
   }
 }

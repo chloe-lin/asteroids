@@ -7,7 +7,7 @@ class particle extends GameObject {
     size = int(random(1, 20)); 
     t = int(random(200, 255)); 
     location = new PVector (x, y); 
-    velocity = new PVector (0, 1); 
+    velocity = new PVector (0, 10); 
     velocity.rotate( random(0, TWO_PI)); 
   } 
   
